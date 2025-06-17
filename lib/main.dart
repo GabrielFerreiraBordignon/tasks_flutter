@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projeto/route_generator.dart';
 import 'package:flutter_projeto/screens/home_screen.dart';
 
 void main() {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hiragana Tec',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomeScreen(),
+      initialRoute: 'home',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

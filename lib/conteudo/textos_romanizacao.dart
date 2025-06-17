@@ -1,0 +1,3 @@
+class TextosRomanizacao {
+  static const String conteudo = 'Para entender e aprender os alfabetos utilizados no japão utiliza-se o roomaji, os japoneses chamam de roomaji o sistema ocidental de escrita. Ou seja, o alfabeto que usamos para escrever português. Roomaji é basicamente a palavra em japonês que é utilizada para se referir ao alfabeto romano, que nós utilizamos. O roomaji pode ser usado no início dos seus estudos como auxílio para aprender a ler em japonês. É utilizado até que o estudante seja capaz de entender HIRAGANA, abaixo podemos ver alguns exemplos:';
+}
