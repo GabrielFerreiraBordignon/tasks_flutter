@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projeto/screens/exercicios_screen.dart';
+import 'package:flutter_projeto/screens/familias_screen.dart';
 import 'package:flutter_projeto/screens/hiraganas_screen.dart';
 import 'package:flutter_projeto/screens/home_screen.dart';
 import 'package:flutter_projeto/screens/introducao_screen.dart';
 import 'package:flutter_projeto/screens/romanizacao_screen.dart.dart';
+import 'package:flutter_projeto/utils/colors_app.dart';
+
+import 'components/navegacao/icon_button_to_home_component.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-
-    final args = settings.arguments;
 
     switch(settings.name) {
       case 'home':
@@ -26,6 +29,14 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const HiraganasScreen(),
         );
+      case 'exercicios':
+        return MaterialPageRoute(
+          builder: (_) => const ExerciciosScreen(),
+        );
+      case 'familias':
+        return MaterialPageRoute(
+          builder: (_) => const FamiliasScreen(),
+        );
 
       default: return _erroRoute();
     }
@@ -35,7 +46,9 @@ class RouteGenerator {
     return MaterialPageRoute(
       builder: (_) => Scaffold(
         appBar: AppBar(
-          title: const Text('Erro'),
+          backgroundColor: ColorsApp.black,
+          leading: IconButtonToHomeComponent(),
+          title: const Text('Erro', style: TextStyle( color: ColorsApp.white),),
         ),
         body: const Center(
           child: Text('Rota não encontrada'),

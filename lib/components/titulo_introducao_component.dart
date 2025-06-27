@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../conteudo/textos_introducao.dart';
 import '../utils/colors_app.dart';
 
 class TituloIntroducaoComponent extends StatelessWidget {

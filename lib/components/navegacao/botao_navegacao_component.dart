@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projeto/enums/botaoHomeEnum.dart';
+import 'package:flutter_projeto/enums/botaoNavegacao.dart';
 import 'package:flutter_projeto/utils/colors_app.dart';
 
-class BotaoHomeScreen extends StatelessWidget {
+import '../../service/navegacao_service.dart';
 
-  const BotaoHomeScreen({Key? key, required this.botao}) : super(key: key);
-  final BotaoHomeEnum botao;
+class BotaoNavegacao extends StatelessWidget {
+
+  const BotaoNavegacao({Key? key, required this.botao}) : super(key: key);
+  final BotaoNavegacaoEnum botao;
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +15,11 @@ class BotaoHomeScreen extends StatelessWidget {
       padding: const EdgeInsets.only(top: 24.0),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, botao.rota);
+          defineRota(context, botao.rota);
         },
         style: ButtonStyle(
-          minimumSize: WidgetStateProperty.all(Size(280, 100)),
+          backgroundColor: WidgetStateProperty.all<Color>(ColorsApp.white),
+          minimumSize: WidgetStateProperty.all(Size(280.0, 100.0)),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),

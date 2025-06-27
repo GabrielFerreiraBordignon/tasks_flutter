@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../components/botao_home_component.dart';
-import '../enums/botaoHomeEnum.dart';
+import '../components/navegacao/botao_navegacao_component.dart';
+import '../enums/botaoNavegacao.dart';
 import '../utils/colors_app.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,20 +37,20 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          BotaoHomeScreen(
-            botao: BotaoHomeEnum.introducao,
+          BotaoNavegacao(
+            botao: BotaoNavegacaoEnum.introducao,
           ),
-          BotaoHomeScreen(
-            botao: BotaoHomeEnum.romanizacao,
+          BotaoNavegacao(
+            botao: BotaoNavegacaoEnum.romanizacao,
           ),
-          BotaoHomeScreen(
-            botao: BotaoHomeEnum.hiraganas,
+          BotaoNavegacao(
+            botao: BotaoNavegacaoEnum.hiraganas,
           ),
-          BotaoHomeScreen(
-            botao: BotaoHomeEnum.exercicios,
+          BotaoNavegacao(
+            botao: BotaoNavegacaoEnum.exercicios,
           ),
-          BotaoHomeScreen(
-            botao: BotaoHomeEnum.progresso,
+          BotaoNavegacao(
+            botao: BotaoNavegacaoEnum.progresso,
           ),
         ]),
       ),

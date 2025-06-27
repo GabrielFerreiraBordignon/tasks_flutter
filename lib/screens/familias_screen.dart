@@ -1,18 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_projeto/components/botao_hiragana_component.dart';
 
+import 'package:flutter/material.dart';
+
+import '../components/cards_familias.dart';
 import '../components/navegacao/icon_button_to_home_component.dart';
-import '../enums/hiraganaEnum.dart';
 import '../utils/colors_app.dart';
 
-class HiraganasScreen extends StatefulWidget {
-  const HiraganasScreen({super.key});
+class FamiliasScreen extends StatefulWidget{
+  const FamiliasScreen({super.key});
 
   @override
-  State<HiraganasScreen> createState() => _HiraganasScreenState();
+  State<FamiliasScreen> createState() => _FamiliasScreenState();
 }
 
-class _HiraganasScreenState extends State<HiraganasScreen> {
+class _FamiliasScreenState extends State<FamiliasScreen>{
+  final PageController _pageController = PageController();
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +38,10 @@ class _HiraganasScreenState extends State<HiraganasScreen> {
               child: Column(
                 children: [
                   Text(
+                    'Famílias de',
+                    style: TextStyle(fontSize: 35, color: ColorsApp.white),
+                  ),
+                  Text(
                     'HIRAGANAS',
                     style: TextStyle(fontSize: 35, color: ColorsApp.white),
                   ),
@@ -39,26 +51,10 @@ class _HiraganasScreenState extends State<HiraganasScreen> {
           ),
         ),
       ),
-      body:
-        ListaHiragana(),
-    );
-  }
-}
-
-class ListaHiragana extends StatelessWidget{
-  const ListaHiragana({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: ColorsApp.black,
-      child: GridView.count(
-        crossAxisCount: 2,
-        children: List.generate(46, (i) {
-          return BotaoHiraganaComponent(
-            hiragana: HiraganaEnum.values[i % HiraganaEnum.values.length],
-          );
-        }),
+      body: PageView(
+        controller: _pageController,
+        physics: const BouncingScrollPhysics(),
+        children: Cardsfamilias.getCards(),
       ),
     );
   }
