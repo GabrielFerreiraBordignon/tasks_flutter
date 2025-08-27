@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projeto/enums/familiaHiraganaEnum.dart';
+import 'package:flutter_projeto/enums/hiraganaEnum.dart';
+import 'package:flutter_projeto/screens/exercicio_basico_screen.dart';
 import 'package:flutter_projeto/screens/exercicios_screen.dart';
 import 'package:flutter_projeto/screens/familias_screen.dart';
 import 'package:flutter_projeto/screens/hiraganas_screen.dart';
@@ -36,6 +39,16 @@ class RouteGenerator {
       case 'familias':
         return MaterialPageRoute(
           builder: (_) => const FamiliasScreen(),
+        );
+      case 'exercicio_basico':
+        final args = settings.arguments as Map<String, dynamic>;
+        final hiraganaCerto = args['hiraganaCerto'] as HiraganaEnum;
+        final familia = args['familia'] as FamiliaHiraganaEnum;
+        final hiraganas = args['hiraganas'] as List<HiraganaEnum>;
+        final numeroAtual = args['numeroAtual'] as int;
+
+        return MaterialPageRoute(
+          builder: (_) => ExercicioBasicoScreen(hiraganaCerto: hiraganaCerto, familia: familia, hiraganas: hiraganas, numeroAtual: numeroAtual),
         );
 
       default: return _erroRoute();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_projeto/enums/familiaHiraganaEnum.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../service/exercicio_basico_service.dart';
 import '../utils/colors_app.dart';
 
 class EscolherExercicioComponent extends StatelessWidget {
@@ -24,15 +25,14 @@ class EscolherExercicioComponent extends StatelessWidget {
       child: Row(
         children: [
           tituloFamilia(primeiroHiraganaFamilia),
-          botaoPlay(),
+          botaoPlay(context),
         ],
       ),
     );
   }
 
   Widget tituloFamilia(String primeiroHiraganaFamilia){
-    return Container(
-      child: Column(children: [
+    return Column(children: [
         Text(
           'Exercício família $primeiroHiraganaFamilia',
           style: TextStyle(
@@ -57,11 +57,11 @@ class EscolherExercicioComponent extends StatelessWidget {
             ),
           ),
         )
-      ]),
+      ]
     );
   }
 
-  Widget botaoPlay(){
+  Widget botaoPlay(BuildContext context){
     return Expanded(
       child: Container(
         alignment: Alignment.center,
@@ -78,20 +78,18 @@ class EscolherExercicioComponent extends StatelessWidget {
                 backgroundColor: Colors.grey[300],
               ),
             ),
-            Expanded(
-              child: Container(
-                  alignment: Alignment.center,
-                  child: InkWell(
-                    onTap: () {
-                      print('Play clicado!');
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Icon(MdiIcons.play, size: 90,
-                        color: ColorsApp.black,),
-                    ),
-                  )),
-            ),
+            Container(
+                alignment: Alignment.center,
+                child: InkWell(
+                  onTap: () {
+                    proximoExercicio(familia, context, 0);
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(MdiIcons.play, size: 90,
+                      color: ColorsApp.black,),
+                  ),
+                )),
           ],
         ),
       ),

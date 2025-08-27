@@ -5,9 +5,7 @@ enum BotaoNavegacaoEnum {
   romanizacao('Romanização', 2, 'assets/images/romanizacao_img.png', 'romanizacao'),
   hiraganas('HIRAGANAS', 3, 'assets/images/hiragana_img.png', 'hiraganas'),
   exercicios('Exercícios', 4, 'assets/images/exercicios_img.png', 'exercicios'),
-  progresso('Progresso', 5, 'assets/images/progresso_img.png', 'progresso'),
-  exerciciosPraticos('Praticar', 6, 'assets/images/exercicios_praticos.png', 'exerciciosPraticos'),
-  revisao('Revisão', 7, 'assets/images/revisao_img.png', 'revisao');
+  progresso('Progresso', 5, 'assets/images/progresso_img.png', 'progresso');
 
   final String nome;
   final int valor;
